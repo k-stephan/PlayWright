@@ -7,14 +7,15 @@ test('Access Mars URL',async({page})=>
 
 });
 
-test('Login by Record', async ({ page }) => {
+test('Login by Record', async ({ page }) => 
+  {
     await page.goto('https://imarscrmdev.phxa.com/MARSWeb2/Login?');
     //await page.pause();
 
    // console.log(await page.getAttribute('placeholder'));
     await expect(page.locator(".k-input-inner[placeholder='UserId']")).toBeVisible();
     await expect(page.locator(".k-input-inner[placeholder='UserId']")).toBeEditable();
-    await expect.soft(page.locator(".k-input-inner[placeholder='UserId']")).toBeDisabled();
+    //await expect.soft(page.locator(".k-input-inner[placeholder='UserId']")).toBeDisabled();
 
     await expect(page.locator('text=Contact')).toHaveCount(1);
     if (await page.$('text=Contact'))
